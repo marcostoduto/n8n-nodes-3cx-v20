@@ -68,10 +68,10 @@ Il nodo non esegue codice nei task runner, quindi non serve toccare `n8n-runners
 ### In alternativa, con un pacchetto npm
 
 ```bash
-npm pack          # crea n8n-nodes-3cx-v20-0.1.0.tgz
+npm pack          # crea n8n-nodes-3cx-v20-1.0.1.tgz
 ```
 
-e installalo dentro `~/.n8n/nodes` del container n8n (`npm install /percorso/n8n-nodes-3cx-v20-0.1.0.tgz`).
+e installalo dentro `~/.n8n/nodes` del container n8n (`npm install /percorso/n8n-nodes-3cx-v20-1.0.1.tgz`).
 
 ## Sviluppo
 
@@ -93,7 +93,7 @@ usa solo i tipi TypeScript.
 3. Aggiorna `version` in `package.json`, fai commit e crea il tag corrispondente:
 
    ```bash
-   git tag v0.1.0 && git push origin v0.1.0
+   git tag v1.0.1 && git push origin v1.0.1
    ```
 
 Il workflow `.github/workflows/publish.yml` esegue i test e pubblica il pacchetto con provenance.
