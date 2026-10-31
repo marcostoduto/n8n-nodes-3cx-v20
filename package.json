@@ -9,6 +9,17 @@
     "pbx"
   ],
   "license": "MIT",
+  "author": {
+    "name": "marcostoduto"
+  },
+  "homepage": "https://github.com/marcostoduto/n8n-nodes-3cx-v20#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcostoduto/n8n-nodes-3cx-v20.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcostoduto/n8n-nodes-3cx-v20/issues"
+  },
   "main": "index.js",
   "files": [
     "dist"

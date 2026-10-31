@@ -84,6 +84,30 @@ npm test          # build + test contro un finto server 3CX (test/mock-test.js)
 Il codice compilato non richiede `n8n-workflow` a runtime: da quella libreria
 usa solo i tipi TypeScript.
 
+## Pubblicazione su npm
+
+**Automatica (GitHub Actions):**
+
+1. Su npmjs.com crea un token di tipo *Granular Access Token* con permesso di pubblicazione.
+2. Su GitHub aggiungilo come secret `NPM_TOKEN` (*Settings > Secrets and variables > Actions*).
+3. Aggiorna `version` in `package.json`, fai commit e crea il tag corrispondente:
+
+   ```bash
+   git tag v0.1.0 && git push origin v0.1.0
+   ```
+
+Il workflow `.github/workflows/publish.yml` esegue i test e pubblica il pacchetto con provenance.
+
+**Manuale:**
+
+```bash
+npm login
+npm publish --access public
+```
+
+Dopo la pubblicazione il nodo si installa da n8n in *Settings > Community Nodes > Install*
+con il nome `n8n-nodes-3cx-v20`.
+
 ## Licenza
 
 MIT

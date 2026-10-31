@@ -1,0 +1,39 @@
+# Pubblica su npm quando fai push di un tag vX.Y.Z (es. v0.1.0).
+# La versione del tag deve coincidere con "version" in package.json.
+# Richiede il secret NPM_TOKEN (Settings > Secrets and variables > Actions).
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write # necessario per --provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Verifica versione
+        run: |
+          PKG="v$(node -p "require('./package.json').version")"
+          if [ "$PKG" != "$GITHUB_REF_NAME" ]; then
+            echo "Il tag $GITHUB_REF_NAME non coincide con package.json ($PKG)"; exit 1
+          fi
+
+      - name: Test (dist già compilata, nessuna dipendenza esterna)
+        run: node test/mock-test.js
+
+      - name: Publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
