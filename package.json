@@ -1,0 +1,37 @@
+{
+  "name": "n8n-nodes-3cx-v20",
+  "version": "0.1.0",
+  "description": "Nodo n8n per 3CX v20: login con token (Web Client o API client) e Configuration API (XAPI)",
+  "keywords": [
+    "n8n-community-node-package",
+    "3cx",
+    "xapi",
+    "pbx"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && node scripts/copy-icons.js",
+    "dev": "tsc --watch",
+    "test": "npm run build && node test/mock-test.js"
+  },
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ThreeCxV20Api.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ThreeCx/ThreeCx.node.js"
+    ]
+  },
+  "devDependencies": {
+    "n8n-workflow": "*",
+    "typescript": "^5.6.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
