@@ -68,10 +68,10 @@ Il nodo non esegue codice nei task runner, quindi non serve toccare `n8n-runners
 ### In alternativa, con un pacchetto npm
 
 ```bash
-npm pack          # crea marcostoduto-n8n-nodes-3cx-v20-1.0.2.tgz
+npm pack          # crea mstoduto-n8n-nodes-3cx-v20-1.0.2.tgz
 ```
 
-e installalo dentro `~/.n8n/nodes` del container n8n (`npm install /percorso/marcostoduto-n8n-nodes-3cx-v20-1.0.2.tgz`).
+e installalo dentro `~/.n8n/nodes` del container n8n (`npm install /percorso/mstoduto-n8n-nodes-3cx-v20-1.0.2.tgz`).
 
 ## Sviluppo
 
@@ -106,7 +106,7 @@ npm publish --access public
 ```
 
 Dopo la pubblicazione il nodo si installa da n8n in *Settings > Community Nodes > Install*
-con il nome `@marcostoduto/n8n-nodes-3cx-v20`.
+con il nome `@mstoduto/n8n-nodes-3cx-v20`.
 
 ## Licenza
 
