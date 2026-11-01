@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-3cx-v20",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Nodo n8n per 3CX v20: login con token (Web Client o API client) e Configuration API (XAPI)",
   "keywords": [
     "n8n-community-node-package",
