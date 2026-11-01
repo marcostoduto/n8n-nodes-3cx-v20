@@ -1,5 +1,6 @@
-# Pubblica su npm quando fai push di un tag vX.Y.Z (es. v0.1.0).
-# La versione del tag deve coincidere con "version" in package.json.
+# Pubblica su npm:
+#  - automaticamente al push di un tag vX.Y.Z (deve coincidere con "version" in package.json)
+#  - manualmente da Actions > Publish to npm > Run workflow (pubblica la versione di package.json)
 # Richiede il secret NPM_TOKEN (Settings > Secrets and variables > Actions).
 name: Publish to npm
 
@@ -7,6 +8,7 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -24,6 +26,7 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Verifica versione
+        if: github.event_name == 'push'
         run: |
           PKG="v$(node -p "require('./package.json').version")"
           if [ "$PKG" != "$GITHUB_REF_NAME" ]; then
